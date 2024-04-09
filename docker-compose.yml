@@ -28,6 +28,8 @@ services:
     build: .
     container_name: nto_bot
     restart: "always"
+    ports:
+      - 8000:80
     networks:
       - nto_backend_network
     depends_on:
