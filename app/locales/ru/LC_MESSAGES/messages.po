@@ -37,9 +37,13 @@ msgstr "🇨🇳 чин чан чонь"
 
 
 msgid "START_COMMAND_FIRST_TIME"
-msgstr "👋 Привет! Я бот НТО CV 2024 студтрека\n\n
+msgstr "👋 Привет! Я бот НТО CV 2024 студтрека\n\n"
 
 "Пожалуйста, выберите язык!"
+
+
+msgid "GO_BACK_BUTTON"
+msgstr "🔙 Назад"
 
 
 msgid "START_COMMAND"
@@ -72,3 +76,31 @@ msgstr "🔍 Поиск по фото"
 
 msgid "SEND_TEXT_BUTTON"
 msgstr "🔍 Поиск по описанию"
+
+
+msgid "CITY_NAMED_NIZHNIY_NOVGOROD_BUTTON"
+msgstr "Нижний Новгород"
+
+
+msgid "CITY_NAMED_YAROSLAVL_BUTTON"
+msgstr "Ярославль"
+
+
+msgid "CITY_NAMED_EKATIRINBURG_BUTTON"
+msgstr "Екатеринбург"
+
+
+msgid "CITY_NAMED_VLADIMIR_BUTTON"
+msgstr "Владимир"
+
+
+msgid "CHOOSE_CITY"
+msgstr "🏙️ Выберите город"
+
+
+msgid "GET_MORE_INFO_BUTTON"
+msgstr "🔍 Больше информации"
+
+
+msgid "SEE_LANDMARKS_IN_CITY"
+msgstr "🏙️ Посмореть достопримечательности в городе <b>{city}</b>"

@@ -1,6 +1,7 @@
 import logging
 
 from aiogram import F, Router, types
+from aiogram.enums import ChatAction
 from aiogram.filters import Command, CommandObject
 from core.db.models import User
 from core.keyboards.inline import choose_city, choose_language
@@ -12,6 +13,8 @@ router = Router(name="Start router")
 
 @router.message(Command(commands=["start"]), F.chat.type == "private")
 async def start_command(message: types.Message, command: CommandObject):
+    await message.react([types.ReactionTypeEmoji(emoji="👀")])
+    await message.bot.send_chat_action(message.chat.id, ChatAction.UPLOAD_PHOTO)
     user, is_created = await User.update_or_create(
         id=message.from_user.id,
         defaults={
@@ -30,3 +33,9 @@ async def start_command(message: types.Message, command: CommandObject):
         await user.save()
     else:
         await message.answer(text=_("START_COMMAND"), reply_markup=choose_city())
+
+
+@router.callback_query(lambda c: c.data == "main_menu")
+async def main_menu_handler(query: types.CallbackQuery):
+    await query.answer()
+    await query.message.edit_text(text=_("START_COMMAND"), reply_markup=choose_city())

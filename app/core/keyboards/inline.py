@@ -36,6 +36,7 @@ def choose_action() -> InlineKeyboardMarkup:
     kb = InlineKeyboardBuilder()
     kb.button(text=_("SEND_PICTURE_BUTTON"), callback_data="search_image")
     kb.button(text=_("SEND_TEXT_BUTTON"), callback_data="search_text")
+    kb.button(text=_("GO_BACK_BUTTON"), callback_data="main_menu")
     kb.adjust(1)
     return kb.as_markup(resize_keyboard=True)
 

@@ -11,6 +11,6 @@ router = Router(name="Search text router")
 
 @router.callback_query(lambda c: c.data and c.data == "search_text")
 async def search_text_handler(query: types.CallbackQuery, state: FSMContext):
-    city = (await state.get_data()).get("city")
-    await query.message.answer(_("SEND_TEXT_PLEASE", city=CityEnum.get_city_name_by_enum(CityEnum(city))))
     await query.answer()
+    city = (await state.get_data()).get("city")
+    await query.message.edit_text(_("SEND_TEXT_PLEASE", city=CityEnum.get_city_name_by_enum(CityEnum(city))))
