@@ -161,3 +161,4 @@ cython_debug/
 
 /postgresql-data/
 /redis-data/
+.postgres.env
