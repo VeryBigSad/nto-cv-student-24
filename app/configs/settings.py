@@ -14,14 +14,14 @@ if root_logger.handlers:
     root_logger.removeHandler(*root_logger.handlers)
 
 # This flag available only in production enviroment
-is_prod = os.environ.get('PROD_MODE') in [1, True, 'true', 'True']
+is_prod = os.environ.get("PROD_MODE") in [1, True, "true", "True"]
 
 
 if is_prod:
     root_logger.setLevel(logging.INFO)
 else:
     root_logger.setLevel(logging.INFO)
-    load_dotenv(dotenv_path=os.path.join('configs', '.env'))
+    load_dotenv(dotenv_path=os.path.join("configs", ".env"))
 
 
 if root_logger.handlers:
@@ -38,11 +38,11 @@ _logger = logging.getLogger(__name__)
 try:
     env_parameters = EnvConfigsModel(**os.environ)
 except ValidationError as e:
-    _logger.critical(exc_info=e, msg='Env parameters validation')
+    _logger.critical(exc_info=e, msg="Env parameters validation")
     sys.exit(-1)
 env_parameters.PROD_MODE = is_prod
 
 if env_parameters.PROD_MODE:
-    _logger.info('Start in production mode')
+    _logger.info("Start in production mode")
 else:
-    _logger.info('Start in develop mode')
+    _logger.info("Start in develop mode")

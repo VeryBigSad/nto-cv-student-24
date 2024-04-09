@@ -18,12 +18,12 @@ class WI18NMeta(type):
 
 class WI18N(metaclass=WI18NMeta):
     def __init__(
-            self,
-            redis: Union[SyncRedis, AsyncRedis],
-            default_locale: str = "EN",
-            domain: str = "messages",
-            langs_domain: str = "langs",
-            ab_default: str = "ab_default",
+        self,
+        redis: Union[SyncRedis, AsyncRedis],
+        default_locale: str = "EN",
+        domain: str = "messages",
+        langs_domain: str = "langs",
+        ab_default: str = "ab_default",
     ):
         self.redis = redis
         self.domain = domain
@@ -53,7 +53,7 @@ class WI18N(metaclass=WI18NMeta):
         yield self
 
     def get_request(self, locale: str, singular: str) -> str:
-        return f'{self.domain}:{locale}:{self.ab_default}:{singular}'
+        return f"{self.domain}:{locale}:{self.ab_default}:{singular}"
 
     def gettext(self, singular: str, locale: Optional[str] = None):
         if locale is None:
@@ -73,7 +73,7 @@ class WI18N(metaclass=WI18NMeta):
         return singular
 
     async def check_locale(self, locale: str):
-        return await self.redis.sismember(f'{self.langs_domain}', locale)
+        return await self.redis.sismember(f"{self.langs_domain}", locale)
 
     def lazy_gettext(self, singular: str, locale: Optional[str] = None):
         pass

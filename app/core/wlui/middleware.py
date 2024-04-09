@@ -30,10 +30,11 @@ class WnLoggingUserIdMiddleware(BaseMiddleware):
         try:
             message_id, bot_id, chat_type, chat_id = self.get_event_info(event, data)
         except Exception as e:
-            logger.exception('WnLoggingUserIdMiddleware', exc_info=e)
+            logger.exception("WnLoggingUserIdMiddleware", exc_info=e)
             message_id, bot_id, chat_type, chat_id = None, None, None, None
-        with self.wlui.use_message_id(message_id), self.wlui.use_bot_id(bot_id), self.wlui.use_chat_id(
-                chat_id), self.wlui.use_chat_type(chat_type):
+        with self.wlui.use_message_id(message_id), self.wlui.use_bot_id(
+            bot_id
+        ), self.wlui.use_chat_id(chat_id), self.wlui.use_chat_type(chat_type):
             return await handler(event, data)
 
     def get_event_info(self, event: types.Update, data: dict):
@@ -45,29 +46,65 @@ class WnLoggingUserIdMiddleware(BaseMiddleware):
             elif event.channel_post:
                 return self.on_pre_process_channel_post(event.channel_post, data)
             elif event.edited_channel_post:
-                return self.on_pre_process_edited_channel_post(event.edited_channel_post, data)
+                return self.on_pre_process_edited_channel_post(
+                    event.edited_channel_post, data
+                )
             elif event.inline_query:
                 return self.on_pre_process_inline_query(event.inline_query, data)
             elif event.chosen_inline_result:
-                return self.on_pre_process_chosen_inline_result(event.chosen_inline_result, data)
+                return self.on_pre_process_chosen_inline_result(
+                    event.chosen_inline_result, data
+                )
         return None, None, None, None
 
     def on_pre_process_message(self, message: types.Message, data: dict):
-        return message.message_id, data.get('bot').id, message.chat.type, message.chat.id
+        return (
+            message.message_id,
+            data.get("bot").id,
+            message.chat.type,
+            message.chat.id,
+        )
 
     def on_pre_process_edited_message(self, edited_message, data: dict):
-        return edited_message.message_id, data.get('bot').id, edited_message.chat.type, edited_message.chat.id
+        return (
+            edited_message.message_id,
+            data.get("bot").id,
+            edited_message.chat.type,
+            edited_message.chat.id,
+        )
 
     def on_pre_process_channel_post(self, channel_post: types.Message, data: dict):
-        return channel_post.message_id, data.get('bot').id, channel_post.chat.type, channel_post.chat.id
+        return (
+            channel_post.message_id,
+            data.get("bot").id,
+            channel_post.chat.type,
+            channel_post.chat.id,
+        )
 
-    def on_pre_process_edited_channel_post(self, edited_channel_post: types.Message, data: dict):
-        return (edited_channel_post.message_id, data.get('bot').id, edited_channel_post.chat.type,
-                edited_channel_post.chat.id)
+    def on_pre_process_edited_channel_post(
+        self, edited_channel_post: types.Message, data: dict
+    ):
+        return (
+            edited_channel_post.message_id,
+            data.get("bot").id,
+            edited_channel_post.chat.type,
+            edited_channel_post.chat.id,
+        )
 
     def on_pre_process_inline_query(self, inline_query: types.InlineQuery, data: dict):
-        return inline_query.message_id, data.get('bot').id, inline_query.chat.type, inline_query.chat.id
+        return (
+            inline_query.message_id,
+            data.get("bot").id,
+            inline_query.chat.type,
+            inline_query.chat.id,
+        )
 
-    def on_pre_process_chosen_inline_result(self, chosen_inline_result: types.ChosenInlineResult, data: dict):
-        return (chosen_inline_result.message_id, data.get('bot').id, chosen_inline_result.chat.type,
-                chosen_inline_result.chat.id)
+    def on_pre_process_chosen_inline_result(
+        self, chosen_inline_result: types.ChosenInlineResult, data: dict
+    ):
+        return (
+            chosen_inline_result.message_id,
+            data.get("bot").id,
+            chosen_inline_result.chat.type,
+            chosen_inline_result.chat.id,
+        )

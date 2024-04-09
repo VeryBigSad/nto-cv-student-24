@@ -20,7 +20,6 @@ class WLUIContextVar(metaclass=WLUIMeta):
         self.ctx_message_id = ContextVar("wn_ctx_message_id", default=None)
         self.ctx_chat_type = ContextVar("wn_ctx_chat_type", default=None)
 
-
     @property
     def current_chat_id(self) -> Optional[int]:
         return self.ctx_chat_id.get()

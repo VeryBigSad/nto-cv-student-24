@@ -8,8 +8,8 @@ logger = logging.getLogger(__name__)
 
 class User(Model):
     class Meta:
-        table = 'users'
-        ordering = ['created_at']
+        table = "users"
+        ordering = ["created_at"]
 
     id = fields.BigIntField(pk=True)
     username = fields.CharField(max_length=32, index=True, null=True)
@@ -19,4 +19,3 @@ class User(Model):
     is_premium = fields.BooleanField(null=True)
     created_at = fields.DatetimeField(auto_now_add=True)
     updated_at = fields.DatetimeField(auto_now=True)
-

@@ -12,11 +12,11 @@ if TYPE_CHECKER:
 
 class RedisI18nMiddleware(I18nMiddleware):
     def __init__(
-            self,
-            i18n: "WI18N",
-            fsm_key: Optional[str] = "locale",
-            i18n_key: Optional[str] = "i18n",
-            middleware_key: str = "i18n_middleware",
+        self,
+        i18n: "WI18N",
+        fsm_key: Optional[str] = "locale",
+        i18n_key: Optional[str] = "i18n",
+        middleware_key: str = "i18n_middleware",
     ) -> None:
         self.key = fsm_key
         super().__init__(i18n=i18n, i18n_key=i18n_key, middleware_key=middleware_key)
@@ -33,7 +33,9 @@ class RedisI18nMiddleware(I18nMiddleware):
                 await fsm_context.update_data(data={self.key: locale})
         return locale
 
-    async def get_locale_from_update(self, event: TelegramObject, data: Dict[str, Any]) -> str:
+    async def get_locale_from_update(
+        self, event: TelegramObject, data: Dict[str, Any]
+    ) -> str:
         event_from_user: Optional[User] = data.get("event_from_user", None)
         if event_from_user is None or event_from_user.language_code is None:
             return self.i18n.default_locale
