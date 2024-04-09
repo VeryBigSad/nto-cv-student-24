@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  nto_db:
+    image: "postgres:13"
+    container_name: nto_db
+    restart: "always"
+    env_file: .postgres.env
+    ports:
+      - "5432:5432"
+    networks:
+      - nto_backend_network
+    volumes:
+      - ./postgresql-data/:/var/lib/postgresql/data
+
+  nto_redis:
+    image: "redis:alpine"
+    container_name: nto_redis
+    restart: "always"
+    networks:
+      - nto_backend_network
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-data/:/data  
+
+  nto_bot:
+    build: .
+    container_name: nto_bot
+    restart: "always"
+    networks:
+      - nto_backend_network
+    depends_on:
+      - nto_db
+    environment:
+      PROD_MODE: 0
+    env_file:
+      - .env
+
+
+
+networks:
+  nto_backend_network:
+    driver: bridge

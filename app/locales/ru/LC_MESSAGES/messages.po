@@ -1,0 +1,245 @@
+# Russian translations for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-11-11 23:56+0300\n"
+"PO-Revision-Date: 2023-11-11 23:57+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.11.0\n"
+
+
+msgid "START_HELP_TEXT"
+msgstr "Я бот X10 Academy - платформа для регистрации, прохождения курсов и вебинаров\n\n"
+
+"Для получения подробной информации нажмите /faq"
+
+
+msgid "HELP"
+msgstr "/start - начало работы\n"
+"/about - описание бота\n"
+"/faq - помощь\n"
+"/invite - информация о реферальной системе"
+
+
+msgid "INVITE_INFO"
+msgstr "Информация о реферальной системе"
+
+
+msgid "ABOUT_INFO"
+msgstr "Информация о боте"
+
+
+msgid "CANCEL_MSG"
+msgstr "Никакие цепочки процессов не запущены. Отменять нечего."
+
+
+msgid "CANCELED"
+msgstr "Действие отменено"
+
+
+msgid "NEW_ADMIN_TEXT"
+msgstr "Вам выданы права администратора"
+
+
+msgid "ERROR"
+msgstr "❌ Ошибка"
+
+
+msgid "CONTINUE_BUTTON"
+msgstr "Продолжить"
+
+
+msgid "GET_FIO"
+msgstr "Введите свое ФИО"
+
+
+msgid "GET_FIO_WRONG_INPUT"
+msgstr "Введите корректное ФИО"
+
+
+msgid "GET_EMAIL"
+msgstr "Введите свою электронную почту"
+
+
+msgid "GET_EMAIL_WRONG_INPUT"
+msgstr "Введите корректную почту"
+
+
+msgid "IS_THIS_YOUR_EMAIL"
+msgstr "Это ваша почта?"
+
+
+msgid "SENDING_EMAIL"
+msgstr "Отправка письма на почту {email}..."
+
+
+msgid "WRONG_VERIFICATION_CODE_TOO_MANY_ATTEMPTS"
+msgstr "❌ Слишком много попыток ввода кода, попробуйте через 24 часа."
+
+
+msgid "RESEND_EMAIL"
+msgstr "Отправить код еще раз"
+
+
+msgid "GET_VERIFICATION_CODE"
+msgstr "Мы только что выслали вам письмо на почту {email}.\n\n"
+
+"Введите код из письма."
+
+
+msgid "WRONG_VERIFICATION_CODE"
+msgstr "❌ Неверный код, попробуйте еще раз"
+
+
+msgid "GET_PHONE"
+msgstr "Введите свой номер телефона или отправьте контакт"
+
+
+msgid "GET_PHONE_ALREADY_IN_DB"
+msgstr "Пользователь с таким номером уже зарегистрирован - повторите ввод"
+
+
+msgid "GET_PHONE_WRONG_INPUT"
+msgstr "❌ Введите корректный номер или поделитесь контактом"
+
+
+msgid "GET_PHONE_SAVED"
+msgstr "✅ Номер сохранен"
+
+
+msgid "CITIES_MENU_PAGE_TEXT"
+msgstr "Выберите кнопками или введите текстом свой город"
+
+
+msgid "NO_CITIES"
+msgstr "❌ Городов нет"
+
+
+msgid "PICK_STATUS"
+msgstr "Выберите свою роль"
+
+
+msgid "ALREADY_REGISTERED"
+msgstr "Вы уже зарегистрированы"
+
+
+msgid "TEST_RESULT_TRUE"
+msgstr "✅ Тест успешно пройден!"
+
+
+msgid "welcome_video"
+msgstr "BAACAgIAAxkDAAIPT2Vo4Esx7nqiDneyf1TTh3W_7NLdAALiQgACZydJS7R2MSFRhbwiMwQ"
+
+
+msgid "TEST_RESULT_FALSE"
+msgstr "❌ Тест пройден не верно, повторите попытку"
+
+
+# commands
+msgid "START_COMMAND"
+msgstr "Начало работы, инструкция"
+
+
+msgid "CANCEL_COMMAND"
+msgstr "Сбросить текущую цепочку действий"
+
+
+msgid "HELP_COMMAND"
+msgstr "Помощь"
+
+
+msgid "INVITE_COMMAND"
+msgstr "Информация о реферальной системе"
+
+
+msgid "REF_COMMAND"
+msgstr "Создать реферальную ссылку"
+
+
+msgid "ABOUT_COMMAND"
+msgstr "Описание бота"
+
+
+msgid "CHANGE_WELCOME_VIDEO_COMMAND"
+msgstr "Изменить приветственное сообщение"
+
+
+msgid "REGISTER_ERROR"
+msgstr "Ошибка при регистрации, проверьте почту на уникальность и повторите весь процесс или обратитесь к администрации"
+
+
+
+# buttons
+msgid "BACK"
+msgstr "◀️"
+
+
+msgid "FORWARD"
+msgstr "▶️"
+
+
+msgid "CONTINUE_BUTTON"
+msgstr "Продолжить"
+
+
+msgid "REF_LINK_BUTTON"
+msgstr "Х10 Academy"
+
+
+msgid "SHARE_CONTACT_BUTTON"
+msgstr "Поделиться контактом"
+
+
+msgid "MEMBER_BUTTON"
+msgstr "Участник"
+
+
+msgid "CLAMPER_BUTTON"
+msgstr "Клампер"
+
+
+msgid "BUTTON_TEXT"
+msgstr "Пройти тест"
+
+
+msgid "YES_MY_EMAIL_BUTTON"
+msgstr "Да, это моя почта"
+
+
+msgid "NOT_MY_EMAIL_BUTTON"
+msgstr "Нет"
+
+
+# format
+msgid "CITY_PICKED"
+msgstr "Вы выбрали {city}"
+
+
+msgid "STATUS_PICKED"
+msgstr "Вы выбрали роль {status}"
+
+
+msgid "CITY_LEADER"
+msgstr "Региональный лидер в вашем городе: @{leader}"
+
+
+msgid "REG_DATA"
+msgstr "Ваши авторизационные данные\n"
+"Логин: <code>{login}</code>\n"
+"Пароль: <code>{password}</code>"
+
+
+msgid "LEADER_NOTIFICATION"
+msgstr "Новый клампер в вашем городе: {clamper}"
