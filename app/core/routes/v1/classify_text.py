@@ -16,7 +16,7 @@ bot = Bot(env_parameters.TELEGRAM_BOT_TOKEN, parse_mode="HTML")
 @router.post(
     "/classify-text",
     response_model=ClassifyText.Response,
-    status_code=status.HTTP_200_OK
+    status_code=status.HTTP_200_OK,
 )
 async def classify_text_route(body: ClassifyText.Request, city: CityEnum):
     """Загрузка текста для классификации"""

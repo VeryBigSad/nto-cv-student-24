@@ -19,7 +19,7 @@ class BaseClassifyResponse(BaseModel):
 class ClassifyText:
     class Request(BaseModel):
         text: str
-    
+
     class Response(BaseClassifyResponse):
         pass
 
@@ -27,4 +27,3 @@ class ClassifyText:
 class ClassifyImage:
     class Response(BaseClassifyResponse):
         image_url: HttpUrl
-

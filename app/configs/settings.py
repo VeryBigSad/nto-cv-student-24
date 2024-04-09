@@ -1,12 +1,12 @@
 import logging
 import os
 import sys
-from dotenv import load_dotenv
-from pydantic import ValidationError
+
 from configs.env_configs_models import EnvConfigsModel
 from core.wlui.formatter import formatter as wlui_formatter
 from core.wlui.l_filter import WLUIFilter
-
+from dotenv import load_dotenv
+from pydantic import ValidationError
 
 root_logger = logging.getLogger()
 
@@ -20,7 +20,7 @@ is_prod = os.environ.get("PROD_MODE") in [1, True, "true", "True"]
 if is_prod:
     root_logger.setLevel(logging.INFO)
 else:
-    root_logger.setLevel(logging.INFO)
+    root_logger.setLevel(logging.DEBUG)
     load_dotenv(dotenv_path=os.path.join("configs", ".env"))
 
 
@@ -32,7 +32,6 @@ consoleHandler.addFilter(WLUIFilter())
 consoleHandler.setFormatter(wlui_formatter)
 
 root_logger.addHandler(consoleHandler)
-root_logger.setLevel(logging.INFO)
 _logger = logging.getLogger(__name__)
 
 try:

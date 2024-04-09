@@ -13,10 +13,7 @@ wnl = WLUIContextVar()
 bot = Bot(env_parameters.TELEGRAM_BOT_TOKEN, parse_mode="HTML")
 
 
-@router.post(
-    "/classify-image",
-    response_model=ClassifyImage.Response
-)
+@router.post("/classify-image", response_model=ClassifyImage.Response)
 async def classify_image_route(image: UploadFile, city: CityEnum):
     """Загрузка изображений для последующей классификации"""
     pass

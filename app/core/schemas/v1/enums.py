@@ -6,4 +6,3 @@ class CityEnum(str, Enum):
     YAROSLAVL = "yaroslavl"
     VLADIMIR = "vladimir"
     EKATIRINBURG = "ekatirinburg"
-    
