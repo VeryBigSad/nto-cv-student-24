@@ -1,7 +1,9 @@
 import core.middlewares
 from aiogram import Bot, Dispatcher
 from configs.settings import env_parameters
-from core.handlers import help, language, search_image, search_text, start
+from core.handlers import (choose_city, city_command, help, image_handler,
+                           language, results, search_image, search_text, start,
+                           text_handler)
 from core.routes import core_router
 from core.setup import local_register
 from core.wlui.context import WLUIContextVar
@@ -20,7 +22,12 @@ dp.include_router(start.router)
 dp.include_router(help.router)
 dp.include_router(language.router)
 dp.include_router(search_image.router)
+dp.include_router(choose_city.router)
+dp.include_router(city_command.router)
 dp.include_router(search_text.router)
+dp.include_router(results.router)
+dp.include_router(image_handler.router)
+dp.include_router(text_handler.router)
 
 app = FastAPI()
 app.include_router(core_router)

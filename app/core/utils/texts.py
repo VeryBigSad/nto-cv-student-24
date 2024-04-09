@@ -8,7 +8,7 @@ def _(text: str, **kwargs) -> str:
     return gettext(text).format(**kwargs)
 
 
-def get_localization_with_lang(text: str, lang: str, **kwargs) -> str:
+def get_localization_with_lang(text: str, lang: str | None = None, **kwargs) -> str:
     return gettext(text, locale=lang).format(**kwargs)
 
 

@@ -3,7 +3,7 @@ import logging
 from aiogram import F, Router, types
 from aiogram.filters import Command, CommandObject
 from core.db.models import User
-from core.keyboards.inline import choose_action, choose_language
+from core.keyboards.inline import choose_city, choose_language
 from core.utils.texts import _
 
 logger = logging.getLogger(__name__)
@@ -29,4 +29,4 @@ async def start_command(message: types.Message, command: CommandObject):
         user.deeplink = command.args
         await user.save()
     else:
-        await message.answer(text=_("START_COMMAND"), reply_markup=choose_action())
+        await message.answer(text=_("START_COMMAND"), reply_markup=choose_city())

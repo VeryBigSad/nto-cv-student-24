@@ -6,7 +6,7 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery, Message
 from core.db.models import User
-from core.keyboards.inline import choose_action, choose_language
+from core.keyboards.inline import choose_city, choose_language
 from core.middlewares import i18n
 from core.redis import set_user_language_by_id
 from core.utils.other import await_something
@@ -40,6 +40,6 @@ async def choose_language_callback_handler(query: CallbackQuery, state: FSMConte
         await_something(query.message.delete()),
     )
     await query.message.answer(
-        text=get_localization_with_lang("START_COMMAND", lang=user_language),
-        reply_markup=choose_action(),
+        text=get_localization_with_lang("CHOOSE_CITY", lang=user_language),
+        reply_markup=choose_city(user_language),
     )
