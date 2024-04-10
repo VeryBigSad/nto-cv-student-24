@@ -34,7 +34,8 @@ async def classify_text_route(body: ClassifyText.Request, city: CityEnum):
         "name": res.get("name"),
         "category": res.get("category"),
         "city": city.value,
-        "coordinates": CoordinateModel(latitude=res.get("coord")[0], longitude=res.get("coord")[1]),
+        "coordinates": CoordinateModel(latitude=res.get("coord")[1], longitude=res.get("coord")[0]),
         "probability": res.get("probs"),
+        # "image_bytes": res.get("image_bytes"),
     } for res in response_json]
     return results
