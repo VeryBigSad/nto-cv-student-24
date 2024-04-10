@@ -31,9 +31,8 @@ async def search_text_handler(query: types.CallbackQuery, state: FSMContext):
                     xaxis_title='Вероятность',
                     yaxis_title='Название')
     img_bytes = fig.to_image(format="png")
-    img = io.BytesIO(img_bytes)
     await query.message.answer_photo(
-        photo=img,
+        photo=types.BufferedInputFile(img_bytes, filename="image.png"),
         caption="Диаграмма распределения вероятности"
     )
 

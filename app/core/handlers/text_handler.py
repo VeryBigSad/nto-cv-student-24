@@ -25,7 +25,7 @@ async def text_handler(message: types.Message, state: FSMContext):
         ) as response:
             response_json = await response.json()
     await state.update_data(results=response_json)
-    texts = "TODO: добавить 5 картинок\n\n"
+    texts = ""
     for i in response_json:
         texts += _(
             "TEXT_HANDLER_RESULT",
@@ -34,4 +34,12 @@ async def text_handler(message: types.Message, state: FSMContext):
             coordinates=f"{i['coordinates']['longitude']}, {i['coordinates']['latitude']}",
             probability=round(i["probability"], 3),
         ) + "\n\n"
-    await message.answer(texts, reply_markup=get_diagram_keyboard())
+    await message.answer_media_group(
+        media=[
+            types.InputMediaPhoto(media=i["image_url"], caption=texts) for i in response_json
+        ],
+    )
+    await message.answer(
+        "👀",
+        reply_markup=get_diagram_keyboard(),
+    )
