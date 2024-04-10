@@ -38,7 +38,7 @@ async def classify_image_route(image: UploadFile, city: CityEnum):
         "name": res.get("name"),
         "category": res.get("category"),
         "city": city.value,
-        "coordinates": CoordinateModel(latitude=res.get("coord")[1], longitude=res.get("coord")[0]),
+        "coordinates": CoordinateModel(latitude=res.get("coords")[1], longitude=res.get("coords")[0]),
         "probability": res.get("probs"),
     } for res in response_json]
     return {"predicts": results, "categories": categories}
