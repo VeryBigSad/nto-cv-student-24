@@ -25,7 +25,7 @@ async def photo_handler(message: types.Message, bot: Bot, state: FSMContext):
             f"http://localhost:80/api/v1/classify-image?city={city}",
             files={"image": ("file.jpg", result, "image/jpeg")},
         )
-        response_json = response.json()
+        response_json = response.json()["predicts"]
 
     await state.update_data(results=response_json)
     texts = ""
