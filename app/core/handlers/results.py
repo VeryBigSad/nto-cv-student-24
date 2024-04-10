@@ -14,6 +14,7 @@ router = Router(name="results router")
 @router.callback_query(lambda c: c.data and c.data == "more_info")
 async def search_text_handler(query: types.CallbackQuery, state: FSMContext):
     await query.answer()
+    await query.message.edit_reply_markup(reply_markup=None)
     await query.message.answer("Диаграмма распределения вероятности")
     await query.message.answer("Топ Н результатов по вероятности: названия, категория")
     await query.message.answer("Диаграмма с топ Н результатов по вероятности: названия, категория")
