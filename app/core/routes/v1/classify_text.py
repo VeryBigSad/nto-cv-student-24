@@ -33,8 +33,8 @@ async def classify_text_route(body: ClassifyText.Request, city: CityEnum):
         "xid": "test_xid",
         "name": res.get("name"),
         "category": "test_category",
-        "city": city,
-        "probs": res.get("probs"),
+        "city": city.value,
+        "probability": res.get("probs"),
         "coordinates": res.get("coord"),
     } for res in response_json]
     return results
