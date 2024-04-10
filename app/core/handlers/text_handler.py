@@ -15,7 +15,7 @@ router = Router(name="Start router")
 async def text_handler(message: types.Message, state: FSMContext):
     await message.react([types.ReactionTypeEmoji(emoji="❤️")])
     text = message.text
-    city = await state.get_data()["city"]
+    city = (await state.get_data())["city"]
     await message.bot.send_chat_action(message.chat.id, ChatAction.TYPING)
     # send request with aiohttp to localhost:8000/api/v1/classify-text
     async with aiohttp.ClientSession() as session:
