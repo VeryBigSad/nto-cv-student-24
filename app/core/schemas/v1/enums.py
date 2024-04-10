@@ -16,6 +16,15 @@ class CityEnum(str, Enum):
             "ekatirinburg": "Екатеринбург",
         }[city]
 
+    def get_letter(self):
+        return {
+            CityEnum.NIJNIY_NOVGOROD: "n",
+            CityEnum.YAROSLAVL: "y",
+            CityEnum.VLADIMIR: "v",
+            CityEnum.EKATIRINBURG: "e",
+        }[self]
+
+
     @classmethod
     def get_city_name_by_enum(cls, city: "CityEnum") -> str:
         return cls.get_city_name(city.value)

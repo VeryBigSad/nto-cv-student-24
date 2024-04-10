@@ -19,6 +19,10 @@ class DataBaseConfigsModel(BaseModel):
     DB_NAME: str
 
 
+class APISettingsConfigsModel(BaseModel):
+    API_URL: str
+
+
 class RedisBaseConfigsModel(BaseModel):
     REDIS_DB_HOST: str
     REDIS_DB_PORT: int
@@ -30,5 +34,6 @@ class EnvConfigsModel(
     TelegramConfigsModel,
     DataBaseConfigsModel,
     RedisBaseConfigsModel,
+    APISettingsConfigsModel,
 ):
     pass

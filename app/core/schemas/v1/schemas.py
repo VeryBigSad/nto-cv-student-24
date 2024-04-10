@@ -24,6 +24,16 @@ class ClassifyText:
         pass
 
 
+class PlaceListResponse(BaseClassifyResponse):
+    image_url: HttpUrl
+
+
+class CategoryModel(BaseModel):
+    value: str
+    probability: float
+
+
 class ClassifyImage:
-    class Response(BaseClassifyResponse):
-        image_url: HttpUrl
+    class Response(BaseModel):
+        predicts: list[PlaceListResponse]
+        categories: list[CategoryModel]
