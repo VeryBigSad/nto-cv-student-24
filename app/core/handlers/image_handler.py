@@ -22,7 +22,7 @@ async def photo_handler(message: types.Message, bot: Bot, state: FSMContext):
     # send request with aiohttp to localhost:8000/api/v1/classify-text
     async with httpx.AsyncClient() as client:
         response = await client.post(
-            f"http://localhost:80/api/v1/classify-text?city={city}",
+            f"http://localhost:80/api/v1/classify-image?city={city}",
             files={"image": ("file.jpg", result, "image/jpeg")},
         )
         response_json = await response.json()
