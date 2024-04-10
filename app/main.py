@@ -1,9 +1,18 @@
 import core.middlewares
 from aiogram import Bot, Dispatcher
 from configs.settings import env_parameters
-from core.handlers import (choose_city, city_command, help, image_handler,
-                           language, results, search_image, search_text, start,
-                           text_handler)
+from core.handlers import (
+    choose_city,
+    city_command,
+    help,
+    image_handler,
+    language,
+    results,
+    search_image,
+    search_text,
+    start,
+    text_handler,
+)
 from core.routes import core_router
 from core.setup import local_register
 from core.wlui.context import WLUIContextVar

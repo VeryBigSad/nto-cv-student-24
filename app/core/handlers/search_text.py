@@ -13,4 +13,6 @@ router = Router(name="Search text router")
 async def search_text_handler(query: types.CallbackQuery, state: FSMContext):
     await query.answer()
     city = (await state.get_data()).get("city")
-    await query.message.edit_text(_("SEND_TEXT_PLEASE", city=CityEnum.get_city_name_by_enum(CityEnum(city))))
+    await query.message.edit_text(
+        _("SEND_TEXT_PLEASE", city=CityEnum.get_city_name_by_enum(CityEnum(city)))
+    )

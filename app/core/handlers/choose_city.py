@@ -16,6 +16,6 @@ async def choose_city_handler(query: types.CallbackQuery, state: FSMContext):
     await query.answer()
     await query.message.edit_text(
         _("SEE_LANDMARKS_IN_CITY", city=CityEnum.get_city_name_by_enum(CityEnum(city))),
-        reply_markup=choose_action()
+        reply_markup=choose_action(),
     )
     await state.update_data(city=city)

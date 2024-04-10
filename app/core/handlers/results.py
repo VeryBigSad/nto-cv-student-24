@@ -16,7 +16,9 @@ async def search_text_handler(query: types.CallbackQuery, state: FSMContext):
     await query.answer()
     await query.message.answer("Диаграмма распределения вероятности")
     await query.message.answer("Топ Н результатов по вероятности: названия, категория")
-    await query.message.answer("Диаграмма с топ Н результатов по вероятности: названия, категория")
+    await query.message.answer(
+        "Диаграмма с топ Н результатов по вероятности: названия, категория"
+    )
     await asyncio.sleep(1)
     city = (await state.get_data()).get("city")
     if city is None:
@@ -24,6 +26,5 @@ async def search_text_handler(query: types.CallbackQuery, state: FSMContext):
         return
     city_pretty = CityEnum.get_city_name_by_enum(CityEnum(city))
     await query.message.answer(
-        _("SEE_LANDMARKS_IN_CITY", city=city_pretty),
-        reply_markup=choose_action()
+        _("SEE_LANDMARKS_IN_CITY", city=city_pretty), reply_markup=choose_action()
     )

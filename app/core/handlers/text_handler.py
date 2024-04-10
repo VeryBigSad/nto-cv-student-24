@@ -14,5 +14,5 @@ async def text_handler(message: types.Message):
     await message.bot.send_chat_action(message.chat.id, ChatAction.UPLOAD_PHOTO)
     await message.answer(
         "Возможно, это <b>фотография достопримечательности</b>",
-        reply_markup=get_diagram_keyboard()
+        reply_markup=get_diagram_keyboard(),
     )

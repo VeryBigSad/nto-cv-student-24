@@ -25,8 +25,10 @@ def choose_city(user_language: str | None = None) -> InlineKeyboardMarkup:
     cities = [city.value for city in CityEnum]
     for city in cities:
         kb.button(
-            text=get_localization_with_lang(f"CITY_NAMED_{city.upper()}_BUTTON", user_language),
-            callback_data=f"city:{city.lower()}"
+            text=get_localization_with_lang(
+                f"CITY_NAMED_{city.upper()}_BUTTON", user_language
+            ),
+            callback_data=f"city:{city.lower()}",
         )
     kb.adjust(1)
     return kb.as_markup(resize_keyboard=True)

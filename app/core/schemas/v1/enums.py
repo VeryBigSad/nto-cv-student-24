@@ -24,6 +24,4 @@ class CityEnum(str, Enum):
     def get_all_cities(cls) -> dict[str, str]:
         """Returns city name as in city enum to their pretty value"""
         cities = [city.value for city in CityEnum]
-        return {
-            city: cls.get_city_name(city) for city in cities
-        }
+        return {city: cls.get_city_name(city) for city in cities}
