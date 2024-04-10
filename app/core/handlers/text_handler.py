@@ -36,10 +36,10 @@ async def text_handler(message: types.Message, state: FSMContext):
         ) + "\n\n"
     await message.answer_media_group(
         media=[
-            types.InputMediaPhoto(media=f"https://storage.yandexcloud.net/misis-progrev-gradientov/{i['xid']}.jpg", caption=texts) for i in response_json
+            types.InputMediaPhoto(media=f"https://storage.yandexcloud.net/misis-progrev-gradientov/{i['xid']}.jpg") for i in response_json
         ],
     )
     await message.answer(
-        "👀",
+        texts,
         reply_markup=get_diagram_keyboard(),
     )
