@@ -18,7 +18,7 @@ router = Router(name="results router")
 async def search_text_handler(query: types.CallbackQuery, state: FSMContext):
     await query.answer()
     await query.message.edit_reply_markup(reply_markup=None)
-    results = await state.get_data()["results"]
+    results = (await state.get_data())["results"]
     names = [result["name"] for result in results]
     probs = [result["probability"] for result in results]
     colors = ['#33a0ff', '#33aaff', '#33b4ff', '#33beff', '#33c8ff', '#33d2ff', '#33dcff', '#33e6ff', '#33f0ff', '#33faff'][::-1]
