@@ -24,6 +24,6 @@ async def classify_image_route(image: UploadFile, city: CityEnum):
             files={"file": (image.filename, image.file, image.content_type)},
         ) as response:
             response_json = response.json()
-    return None
+    pass
     
 
