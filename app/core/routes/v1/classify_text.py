@@ -30,7 +30,7 @@ async def classify_text_route(body: ClassifyText.Request, city: CityEnum):
         ) as response:
             response_json = await response.json()
     results = [{
-        "xid": res.get("test_xid"),
+        "xid": res.get("xid"),
         "name": res.get("name"),
         "category": res.get("category"),
         "city": city.value,
