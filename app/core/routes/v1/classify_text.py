@@ -4,7 +4,7 @@ import aiohttp
 from aiogram import Bot
 from configs.settings import env_parameters
 from core.schemas.v1.enums import CityEnum
-from core.schemas.v1.schemas import ClassifyText
+from core.schemas.v1.schemas import ClassifyText, CoordinateModel
 from core.wlui.context import WLUIContextVar
 from fastapi import APIRouter, status
 
@@ -34,7 +34,7 @@ async def classify_text_route(body: ClassifyText.Request, city: CityEnum):
         "name": res.get("name"),
         "category": "test_category",
         "city": city.value,
-        "probability": res.get("probs"),
+        "probability": CoordinateModel(latitude=res.get("probs")[0], longtitude=res.get("probs")[1]),
         "coordinates": res.get("coord"),
     } for res in response_json]
     return results
