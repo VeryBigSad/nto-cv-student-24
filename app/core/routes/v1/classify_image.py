@@ -4,7 +4,7 @@ import httpx
 from aiogram import Bot
 from configs.settings import env_parameters
 from core.schemas.v1.enums import CityEnum
-from core.schemas.v1.schemas import ClassifyImage
+from core.schemas.v1.schemas import ClassifyImage, CoordinateModel
 from core.wlui.context import WLUIContextVar
 from fastapi import APIRouter, UploadFile, status
 
@@ -24,6 +24,23 @@ async def classify_image_route(image: UploadFile, city: CityEnum):
             files={"file": (image.filename, image.file, image.content_type)},
         ) as response:
             response_json = response.json()
-    pass
+    async with httpx.AsyncClient() as client:
+        async with client.post(
+            f"{env_parameters.API_URL}/categor?city={city_letter}",
+            files={"file": (image.filename, image.file, image.content_type)},
+        ) as response:
+            response_json_categories = response.json()
+    categories = [
+        {"value": res.get("name"), "probability": res.get("probs")} for res in response_json_categories
+    ]
+    results = [{
+        "xid": res.get("xid"),
+        "name": res.get("name"),
+        "category": res.get("category"),
+        "city": city.value,
+        "coordinates": CoordinateModel(latitude=res.get("coord")[1], longitude=res.get("coord")[0]),
+        "probability": res.get("probs"),
+    } for res in response_json]
+    return {"predicts": results, "categories": categories}
     
 
