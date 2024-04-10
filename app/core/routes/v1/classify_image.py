@@ -20,13 +20,13 @@ async def classify_image_route(image: UploadFile, city: CityEnum):
     city_letter = city.get_letter()
     async with httpx.AsyncClient() as client:
         resp = await client.post(
-            f"{env_parameters.API_URL}/text?city={city_letter}",
+            f"{env_parameters.API_URL}/image?city={city_letter}",
             files={"file": (image.filename, image.file, image.content_type)},
         )
         response_json = resp.json()
     async with httpx.AsyncClient() as client:
         resp = await client.post(
-            f"{env_parameters.API_URL}/categor?city={city_letter}",
+            f"{env_parameters.API_URL}/category?city={city_letter}",
             files={"file": (image.filename, image.file, image.content_type)},
         )
         response_json_categories = resp.json()
