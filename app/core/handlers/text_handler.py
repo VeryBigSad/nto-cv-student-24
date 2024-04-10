@@ -4,8 +4,8 @@ import aiohttp
 from aiogram import F, Router, types
 from aiogram.enums import ChatAction
 from aiogram.fsm.context import FSMContext
-from core.utils.texts import _
 from core.keyboards.inline import get_diagram_keyboard
+from core.utils.texts import _
 
 logger = logging.getLogger(__name__)
 router = Router(name="Start router")
@@ -36,7 +36,7 @@ async def text_handler(message: types.Message, state: FSMContext):
                     coordinates=f"{i['coordinates']['longitude']}, {i['coordinates']['latitude']}",
                     probability=round(i["probability"], 3),
                 ),
-                reply_markup=get_diagram_keyboard(i["xid"]),
+                reply_markup=get_diagram_keyboard(),
             )
             continue
         await message.answer(
