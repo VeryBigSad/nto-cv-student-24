@@ -13,10 +13,10 @@ router = Router(name="Start router")
 
 @router.message(F.chat.type == "private")
 async def text_handler(message: types.Message, state: FSMContext):
+    await message.bot.send_chat_action(message.chat.id, ChatAction.TYPING)
     await message.react([types.ReactionTypeEmoji(emoji="❤️")])
     text = message.text
     city = (await state.get_data())["city"]
-    await message.bot.send_chat_action(message.chat.id, ChatAction.TYPING)
     # send request with aiohttp to localhost:8000/api/v1/classify-text
     async with aiohttp.ClientSession() as session:
         async with session.post(
@@ -25,26 +25,13 @@ async def text_handler(message: types.Message, state: FSMContext):
         ) as response:
             response_json = await response.json()
     await state.update_data(results=response_json)
-    for idx in range(len(response_json)):
-        i = response_json[idx]
-        if idx == len(response_json) - 1:
-            await message.answer(
-                _(
-                    "TEXT_HANDLER_RESULT",
-                    category=i["category"],
-                    name=i["name"],
-                    coordinates=f"{i['coordinates']['longitude']}, {i['coordinates']['latitude']}",
-                    probability=round(i["probability"], 3),
-                ),
-                reply_markup=get_diagram_keyboard(),
-            )
-            continue
-        await message.answer(
-            _(
-                "TEXT_HANDLER_RESULT",
-                category=i["category"],
-                name=i["name"],
-                coordinates=f"{i['coordinates']['longitude']}, {i['coordinates']['latitude']}",
-                probability=round(i["probability"], 3),
-            ),
-        )
+    texts = "TODO: добавить 5 картинок\n\n"
+    for i in response_json:
+        texts += _(
+            "TEXT_HANDLER_RESULT",
+            category=i["category"],
+            name=i["name"],
+            coordinates=f"{i['coordinates']['longitude']}, {i['coordinates']['latitude']}",
+            probability=round(i["probability"], 3),
+        ) + "\n\n"
+    await message.answer(texts, reply_markup=get_diagram_keyboard())

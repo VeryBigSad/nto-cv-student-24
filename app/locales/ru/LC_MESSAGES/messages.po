@@ -106,6 +106,10 @@ msgid "SEE_LANDMARKS_IN_CITY"
 msgstr "🏙️ Посмореть достопримечательности в городе <b>{city}</b>"
 
 
+msgid "TEXT_HANDLER_RESULT_HEADER"
+msgstr "Я думаю, ты про эти места:"
+
+
 msgid "TEXT_HANDLER_RESULT"
 msgstr "Возможно, это <b>{category}</b> - <i>{name}</i>\n"
 "Координаты: <b>{coordinates}</b>\n"

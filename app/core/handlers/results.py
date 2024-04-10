@@ -15,10 +15,8 @@ router = Router(name="results router")
 async def search_text_handler(query: types.CallbackQuery, state: FSMContext):
     await query.answer()
     await query.message.edit_reply_markup(reply_markup=None)
-    await query.message.answer("Диаграмма распределения вероятности")
-    await query.message.answer("Топ Н результатов по вероятности: названия, категория")
-    await query.message.answer("Диаграмма с топ Н результатов по вероятности: названия, категория")
-    await asyncio.sleep(1)
+    await query.message.answer("Диаграмма распределения вероятности TODO: добавить")
+    await asyncio.sleep(2.5)
     city = (await state.get_data()).get("city")
     if city is None:
         await query.message.answer(text=_("START_COMMAND"), reply_markup=choose_city())
