@@ -14,6 +14,7 @@ class BaseClassifyResponse(BaseModel):
     city: CityEnum
     coordinates: CoordinateModel
     probability: float
+    images: bytes
 
 
 class ClassifyText:
