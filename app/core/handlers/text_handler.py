@@ -20,7 +20,7 @@ async def text_handler(message: types.Message, state: FSMContext):
     # send request with aiohttp to localhost:8000/api/v1/classify-text
     async with aiohttp.ClientSession() as session:
         async with session.post(
-            f"http://localhost:8000/api/v1/classify-text?city={city.value}",
+            f"http://localhost:8000/api/v1/classify-text?city={city}",
             json={"text": text},
         ) as response:
             response_json = await response.json()
