@@ -30,9 +30,9 @@ async def classify_text_route(body: ClassifyText.Request, city: CityEnum):
         ) as response:
             response_json = await response.json()
     results = [{
-        "xid": "test_xid",
+        "xid": res.get("test_xid"),
         "name": res.get("name"),
-        "category": "test_category",
+        "category": res.get("category"),
         "city": city.value,
         "coordinates": CoordinateModel(latitude=res.get("coord")[0], longitude=res.get("coord")[1]),
         "probability": res.get("probs"),

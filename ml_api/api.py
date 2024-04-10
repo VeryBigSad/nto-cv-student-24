@@ -28,6 +28,8 @@ async def text_predict(body: TextReqest) -> list:
     texts = ml_res[0]
     probs = ml_res[1]
     coords = ml_res[2]
+    xid = ml_res[3]
+    categories = ml_res[4]
     # ml_res is a tuple of 3 lists: names probs, and list of coordinates
     # return dict of city: {name: name, probs: probs, coords: coords}
     for i in range(len(probs)):
@@ -35,7 +37,7 @@ async def text_predict(body: TextReqest) -> list:
     for i in range(len(coords)):
         coords[i] = [float(coord) for coord in coords[i]]
 
-    result = [{"name": texts[i], "probs": probs[i], "coord": coords[i]} for i in range(len(texts))]
+    result = [{"name": texts[i], "probs": probs[i], "coord": coords[i], "xid": xid[i], "category": categories[i]} for i in range(len(texts))]
     return result
 
 
@@ -46,13 +48,17 @@ async def image_predict(file: UploadFile, city: str) -> list:
     texts = ml_res[0]
     probs = ml_res[1]
     coords = ml_res[2]
+    xid = ml_res[3]
+    categories = ml_res[4]
     for i in range(len(probs)):
         probs[i] = float(probs[i])
     for i in range(len(coords)):
         coords[i] = [float(coord) for coord in coords[i]]
     # ml_res is a tuple of 3 lists: names probs, and list of coordinates
     # return dict of city: {name: name, probs: probs, coords: coords}
-    result = [{"name": texts[i], "probs": probs[i], "coords": coords[i]} for i in range(len(texts))]
+    result = [
+        {"name": texts[i], "probs": probs[i], "coords": coords[i], "xid": xid[i], "category": categories[i]} for i in range(len(texts))
+    ]
     return result
 
 
