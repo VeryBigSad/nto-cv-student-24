@@ -33,16 +33,60 @@ msgstr "🇷🇺 Русский"
 
 
 msgid "CHINESE_LANG_BUTTON"
-msgstr "🇨🇳 чин чан чонь"
+msgstr "🇨🇳 中文"
 
+
+msgid "START_COMMAND_FIRST_TIME"
+msgstr "👋 Hello! I'm the NTO CV 2024 student track bot\n\n"
+
+"Please choose a language!"
+
+msgid "GO_BACK_BUTTON"
+msgstr "🔙 Go Back"
 
 msgid "START_COMMAND"
-msgstr "I am bot for NTO CV 2024 student track\n\n"
+msgstr "👋 Hello! I'm the NTO CV 2024 student track bot\n\n"
 
-"for help PRESS /help"
+"I can help you find a landmark, plan a route, and much more!\n"
+"First, choose the city you are in!"
 
+msgid "SEND_TEXT_PLEASE"
+msgstr "Please describe in text what you want to find in the city of {city}!"
+
+msgid "SEND_PHOTO_PLEASE"
+msgstr "Send a photo of what you want to find in the city of {city}!"
+
+msgid "CITY_COMMAND"
+msgstr "🏙️ Choose a city"
 
 msgid "HELP_COMMAND"
 msgstr "/start - start\n"
 "/help - help"
+
+msgid "SEND_PICTURE_BUTTON"
+msgstr "🔍 Search by photo"
+
+msgid "SEND_TEXT_BUTTON"
+msgstr "🔍 Search by description"
+
+msgid "CITY_NAMED_NIZHNIY_NOVGOROD_BUTTON"
+msgstr "Nizhny Novgorod"
+
+msgid "CITY_NAMED_YAROSLAVL_BUTTON"
+msgstr "Yaroslavl"
+
+msgid "CITY_NAMED_EKATIRINBURG_BUTTON"
+msgstr "Ekaterinburg"
+
+msgid "CITY_NAMED_VLADIMIR_BUTTON"
+msgstr "Vladimir"
+
+msgid "CHOOSE_CITY"
+msgstr "🏙️ Choose a city"
+
+msgid "GET_MORE_INFO_BUTTON"
+msgstr "🔍 More information"
+
+msgid "SEE_LANDMARKS_IN_CITY"
+msgstr "🏙️ View landmarks in the city of <b>{city}</b>"
 

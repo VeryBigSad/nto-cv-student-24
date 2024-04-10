@@ -33,7 +33,7 @@ msgstr "🇷🇺 Русский"
 
 
 msgid "CHINESE_LANG_BUTTON"
-msgstr "🇨🇳 чин чан чонь"
+msgstr "🇨🇳 中文"
 
 
 msgid "START_COMMAND_FIRST_TIME"

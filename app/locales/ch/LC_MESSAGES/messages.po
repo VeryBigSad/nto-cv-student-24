@@ -32,15 +32,59 @@ msgstr "🇷🇺 Русский"
 
 
 msgid "CHINESE_LANG_BUTTON"
-msgstr "🇨🇳 чин чан чонь"
+msgstr "🇨🇳 中文"
 
+
+msgid "START_COMMAND_FIRST_TIME"
+msgstr "👋 你好！我是 NTO CV 2024 学生轨道机器人\n\n"
+
+"请选择语言！"
+
+msgid "GO_BACK_BUTTON"
+msgstr "🔙 返回"
 
 msgid "START_COMMAND"
-msgstr "Я бот НТО CV 2024 студтрека\n\n"
+msgstr "👋 你好！我是 NTO CV 2024 学生轨道机器人\n\n"
 
-"Для помощи ВДАВИТЕ /help"
+"我可以帮助你找到地标，规划路线，还有更多！\n"
+"首先，请选择你所在的城市！"
 
+msgid "SEND_TEXT_PLEASE"
+msgstr "请用文字描述你想在 {city} 城找到的东西！"
+
+msgid "SEND_PHOTO_PLEASE"
+msgstr "发送一张你想在 {city} 城找到的照片！"
+
+msgid "CITY_COMMAND"
+msgstr "🏙️ 选择城市"
 
 msgid "HELP_COMMAND"
-msgstr "/start - начало работы\n"
-"/help - помощь"
+msgstr "/start - 开始\n"
+"/help - 帮助"
+
+msgid "SEND_PICTURE_BUTTON"
+msgstr "🔍 通过照片搜索"
+
+msgid "SEND_TEXT_BUTTON"
+msgstr "🔍 通过描述搜索"
+
+msgid "CITY_NAMED_NIZHNIY_NOVGOROD_BUTTON"
+msgstr "下诺夫哥罗德"
+
+msgid "CITY_NAMED_YAROSLAVL_BUTTON"
+msgstr "雅罗斯拉夫尔"
+
+msgid "CITY_NAMED_EKATIRINBURG_BUTTON"
+msgstr "叶卡捷琳堡"
+
+msgid "CITY_NAMED_VLADIMIR_BUTTON"
+msgstr "弗拉基米尔"
+
+msgid "CHOOSE_CITY"
+msgstr "🏙️ 选择城市"
+
+msgid "GET_MORE_INFO_BUTTON"
+msgstr "🔍 更多信息"
+
+msgid "SEE_LANDMARKS_IN_CITY"
+msgstr "🏙️ 查看 <b>{city}</b> 城的地标"
