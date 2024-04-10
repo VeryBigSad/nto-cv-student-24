@@ -14,9 +14,6 @@ wnl = WLUIContextVar()
 bot = Bot(env_parameters.TELEGRAM_BOT_TOKEN, parse_mode="HTML")
 
 
-class Thingy(BaseModel):
-    xid: str
-
 # {'Name':Name, 'Kind':Kind, 'City':City, 'OSM':OSM, 'WikiData':WikiData, 'Rate':Rate, 'Lon':Lon, 'Lat':Lat}
 class Response(BaseModel):
     Name: str
@@ -28,13 +25,13 @@ class Response(BaseModel):
     Lat: str
 
 
-@router.get("/get-by-id", response_model=Response, status_code=status.HTTP_200_OK)
-async def classify_image_route(body: Thingy) -> dict:
+@router.get("/get-by-id/{xid}", response_model=Response, status_code=status.HTTP_200_OK)
+async def classify_image_route(xid: str) -> dict:
     """Загрузка изображений для последующей классификации"""
     async with httpx.AsyncClient() as client:
         resp = await client.get(
             f"{env_parameters.API_URL}/xid",
-            json={"xid": body.xid},
+            json={"xid": xid},
         )
         return resp.json()
     
