@@ -13,7 +13,7 @@ router = Router(name="Start router")
 
 @router.message(F.chat.type == "private")
 async def text_handler(message: types.Message, state: FSMContext):
-    await message.bot.send_chat_action(message.chat.id, ChatAction.TYPING)
+    await message.bot.send_chat_action(message.chat.id, ChatAction.UPLOAD_PHOTO)
     await message.react([types.ReactionTypeEmoji(emoji="❤️")])
     text = message.text
     city = (await state.get_data())["city"]
