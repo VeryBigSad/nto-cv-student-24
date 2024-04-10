@@ -40,5 +40,11 @@ async def text_handler(message: types.Message, state: FSMContext):
             )
             continue
         await message.answer(
-            f"Возможно, это <b>{i['category']}</b> - <i>{i['name']}</i> TODO: add pictures",
+            _(
+                "TEXT_HANDLER_RESULT",
+                category=i["category"],
+                name=i["name"],
+                coordinates=f"{i['coordinates']['longitude']}, {i['coordinates']['latitude']}",
+                probability=round(i["probability"], 3),
+            ),
         )
