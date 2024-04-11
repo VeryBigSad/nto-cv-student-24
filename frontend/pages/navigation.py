@@ -81,12 +81,13 @@ st.markdown('# Построение маршрута по выбранным м�
 
 if len(main.PLACES_TO_VISIT) == 0:
     st.write("Отметьте несколько мест для посещения")
+elif len(main.PLACES_TO_VISIT) == 1:
+    st.write('Отметьте еще несколько мест')
 else:
     waypoints = []
     for place in main.PLACES_TO_VISIT:
         waypoints.append(requests.get(f'http://158.160.138.228:8000/api/v1/get-by-id/{place}').json())
         waypoints[-1].update({'xid': place})
-    print('PENIS PENIS PENIS')
 
     df = pd.DataFrame(waypoints)[['Name', 'xid']]
     df['images'] = df['xid'].apply(lambda xid: f"https://storage.yandexcloud.net/misis-progrev-gradientov/{xid}.jpg")
@@ -143,3 +144,4 @@ else:
 
     if st.button('Построить маршрут'):
         st.plotly_chart(fig, use_container_width=True, height=800)
+        main.PLACES_TO_VISIT = set()
