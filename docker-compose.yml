@@ -43,7 +43,8 @@ services:
     build: ./frontend
     container_name: nto_frontend
     restart: "always"
-    ports: 8080:8501
+    ports: 
+      - "8080:8501"
     
     
 
