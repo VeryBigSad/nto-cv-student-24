@@ -2,10 +2,6 @@ import streamlit as st
 
 PLACES_TO_VISIT = set()
 
-st.set_page_config(
-    page_title="Hello",
-    page_icon="👋",
-)
 from st_pages import Page, show_pages
 
 show_pages(
