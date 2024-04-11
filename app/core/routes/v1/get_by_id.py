@@ -29,7 +29,7 @@ class Response(BaseModel):
 async def classify_image_route(xid: str) -> dict:
     """Загрузка изображений для последующей классификации"""
     async with httpx.AsyncClient() as client:
-        resp = await client.get(
+        resp = await client.post(
             f"{env_parameters.API_URL}/xid",
             json={"xid": xid},
         )
