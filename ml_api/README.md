@@ -1,6 +1,6 @@
 #ML API
 
-```python3
+```
 обозначение города(city) в api:
 'e' - Екатеринбург
 'n' - Нижний Новгород
@@ -31,4 +31,13 @@ def return_diagram_image(out, colors):
     img_bytes = fig.to_image(format="png")
     img = Image.open(io.BytesIO(img_bytes))
     return img
+```
+Step 3: Define variables 
+
+```python3
+
+API_URL = 'https://node-api.datasphere.yandexcloud.net'
+X_NODE_ID = 'bt162oc8pa1upv6u39g3'
+X_FOLDER_ID = 'b1g8eh6dhbr3jt8au86a'
+IAM_TOKEN = 'PUT YOUR TOKEN'
 ```
