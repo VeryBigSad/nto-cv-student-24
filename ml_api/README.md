@@ -91,7 +91,7 @@ Out:
 ```python3
 return_diagram_image(response_json_categories, colors)
 ```
-![image1]([https://github.com/cene555/Imagen-pytorch/blob/main/images/1.jpg](https://github.com/VeryBigSad/nto-cv-student-24/blob/main/ml_api/images/d2.png))
+![image1](https://github.com/cene555/Imagen-pytorch/blob/main/images/1.jpg](https://github.com/VeryBigSad/nto-cv-student-24/blob/main/ml_api/images/d2.png)
 Step 5: Send image
 
 ```python3
