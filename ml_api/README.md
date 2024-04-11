@@ -42,11 +42,13 @@ X_FOLDER_ID = 'b1g8eh6dhbr3jt8au86a'
 IAM_TOKEN = 'PUT YOUR TOKEN'
 ```
 Step 4: Send text
-
 ```python3
 text = "церковь"
 city_letter = 'n'
 async with httpx.AsyncClient() as client:
+```
+
+```python3
         resp = await client.post(
             f"{API_URL}/text?",
             headers={
@@ -86,6 +88,10 @@ Out:
   'xid': 'W151905901',
   'category': 'religion'}]
 ```
+```python3
+return_diagram_image(response_json_categories, colors)
+```
+![image1]([https://github.com/cene555/Imagen-pytorch/blob/main/images/1.jpg](https://github.com/VeryBigSad/nto-cv-student-24/blob/main/ml_api/images/d2.png))
 Step 5: Send image
 
 ```python3
