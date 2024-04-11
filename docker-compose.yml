@@ -39,6 +39,14 @@ services:
     env_file:
       - .env
 
+  nto_frontend:
+    build: ./frontend
+    container_name: nto_frontend
+    restart: "always"
+    ports: 8080:8501
+    
+    
+
 
 
 networks:

@@ -1,0 +1,7 @@
+pandas
+plotly
+pillow
+streamlit
+requests
+st-pages
+
