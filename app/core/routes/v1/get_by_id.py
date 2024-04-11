@@ -32,6 +32,11 @@ async def classify_image_route(xid: str) -> dict:
         resp = await client.post(
             f"{env_parameters.API_URL}/xid",
             json={"xid": xid},
+            headers={
+                "x-node-id": env_parameters.X_NODE_ID,
+                "Authorization": f"Bearer {env_parameters.IAM_TOKEN}",
+                "x-folder-id": env_parameters.X_FOLDER_ID
+            },
         )
         return resp.json()
     

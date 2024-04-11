@@ -27,6 +27,11 @@ async def classify_text_route(body: ClassifyText.Request, city: CityEnum):
         async with session.post(
             f"{env_parameters.API_URL}/text",
             json={"text": text, "city": city_letter},
+            headers={
+                "x-node-id": env_parameters.X_NODE_ID,
+                "Authorization": f"Bearer {env_parameters.IAM_TOKEN}",
+                "x-folder-id": env_parameters.X_FOLDER_ID
+            },
         ) as response:
             response_json = await response.json()
     results = [{

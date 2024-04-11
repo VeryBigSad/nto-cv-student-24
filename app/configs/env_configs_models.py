@@ -21,6 +21,9 @@ class DataBaseConfigsModel(BaseModel):
 
 class APISettingsConfigsModel(BaseModel):
     API_URL: str
+    X_NODE_ID: str
+    IAM_TOKEN: str
+    X_FOLDER_ID: str
 
 
 class RedisBaseConfigsModel(BaseModel):
