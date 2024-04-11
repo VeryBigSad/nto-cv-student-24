@@ -1,12 +1,12 @@
 import logging
+from typing import Any
 
 import httpx
 from aiogram import Bot
-from pydantic import BaseModel
 from configs.settings import env_parameters
-from core.schemas.v1.schemas import ClassifyImage
 from core.wlui.context import WLUIContextVar
 from fastapi import APIRouter, status
+from pydantic import BaseModel
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -16,13 +16,13 @@ bot = Bot(env_parameters.TELEGRAM_BOT_TOKEN, parse_mode="HTML")
 
 # {'Name':Name, 'Kind':Kind, 'City':City, 'OSM':OSM, 'WikiData':WikiData, 'Rate':Rate, 'Lon':Lon, 'Lat':Lat}
 class Response(BaseModel):
-    Name: str
-    Kind: str
-    OSM: str
-    WikiData: str
-    Rate: str
-    Lon: str
-    Lat: str
+    Name: Any
+    Kind: Any
+    OSM: Any
+    WikiData: Any
+    Rate: Any
+    Lon: float
+    Lat: float
 
 
 @router.get("/get-by-id/{xid}", response_model=Response, status_code=status.HTTP_200_OK)
