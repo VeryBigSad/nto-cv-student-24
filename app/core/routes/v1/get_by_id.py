@@ -16,11 +16,11 @@ bot = Bot(env_parameters.TELEGRAM_BOT_TOKEN, parse_mode="HTML")
 
 # {'Name':Name, 'Kind':Kind, 'City':City, 'OSM':OSM, 'WikiData':WikiData, 'Rate':Rate, 'Lon':Lon, 'Lat':Lat}
 class Response(BaseModel):
-    Name: Any
-    Kind: Any
-    OSM: Any
-    WikiData: Any
-    Rate: Any
+    Name: str
+    Kind: str
+    OSM: str | None
+    WikiData: str
+    Rate: str
     Lon: float
     Lat: float
 
