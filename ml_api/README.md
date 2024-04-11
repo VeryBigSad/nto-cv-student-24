@@ -139,7 +139,7 @@ Out:
   'coords': [60.607727, 56.832176],
   'xid': 'W59804593',
   'category': 'architecture'}]
+```
 ```python3
 return_diagram_image(response_json_categories, colors)
-```
 ```
