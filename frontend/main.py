@@ -35,6 +35,23 @@ st.page_link("pages/photo2place.py", label="Поиск достопримеча�
 st.page_link("pages/text2place.py", label="Поиск достопримечательности по тексту", icon="2️⃣", )
 st.page_link("pages/navigation.py", label="Построение маршрута", icon="🌎")
 
+TRANSLATION = {
+    'sport': 'Спорт',
+    'architecture': 'Архитектура',
+    'historic_architecture': 'Историческая архитектура',
+    'interesting_places': 'Интересные места',
+    'stadiums': 'Стадионы',
+    'other_buildings_and_structures': 'Другие здания и сооружения',
+    'other': 'Другое',
+    'unclassified_objects': 'Неклассифицированные объекты',
+    'museums': 'Музеи',
+    'churches': 'Церкви',
+    'cultural': 'Культурное',
+    'urban_environment': 'Городская среда',
+    'squares': 'Площади',
+    'religion': 'Религиозные места'
+}
+
 if __name__=='__main__':
     CITY = {'Нижний Новгород': 'nizhniy_novgorod',
             'Ярославль': 'yaroslavl',
@@ -42,3 +59,4 @@ if __name__=='__main__':
             'Екатеринбург': 'ekatirinburg'
             }[city]
     open('city', 'w').write(CITY)
+

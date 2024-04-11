@@ -7,8 +7,18 @@ import plotly.express as px
 import plotly.graph_objects as go
 import requests
 import streamlit as st
+from st_pages import Page, show_pages
 
 import main
+
+show_pages(
+    [
+        Page("main.py", "Главная", "🏠"),
+        Page("pages/photo2place.py", "Поиск достопримечательности по фотографии", "🖼️"),
+        Page("pages/text2place.py", "Поиск достопримечательности по тексту", icon="🔎"),
+        Page("pages/navigation.py", "Построение маршрута", icon="🌎")
+    ]
+)
 
 
 def distance(point1, point2):
@@ -66,6 +76,7 @@ def make_payload(waypoints):
         })
     return payload
 
+
 st.markdown('# Построение маршрута по выбранным местам')
 
 if len(main.PLACES_TO_VISIT) == 0:
@@ -75,6 +86,7 @@ else:
     for place in main.PLACES_TO_VISIT:
         waypoints.append(requests.get(f'http://158.160.138.228:8000/api/v1/get-by-id/{place}').json())
         waypoints[-1].update({'xid': place})
+    print('PENIS PENIS PENIS')
 
     df = pd.DataFrame(waypoints)[['Name', 'xid']]
     df['images'] = df['xid'].apply(lambda xid: f"https://storage.yandexcloud.net/misis-progrev-gradientov/{xid}.jpg")
