@@ -13,6 +13,11 @@ show_pages(
     ]
 )
 
+st.set_page_config(
+    page_title="Hello",
+    page_icon="👋",
+)
+
 st.sidebar.success("Выберите сценарий")
 
 st.markdown(
